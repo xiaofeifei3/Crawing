@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    for(int i = 0; i < 3; i++) {
+    for(int i = 33; i < 34; i++) {
       Log.e("index", "index:" + i);
       final int index = i;
       Crawer.syncGet(URL + "/dangan/"+ INDEX[index] + "-1.html", new Crawer.OnCrawerReadyListener() {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         public void onReady(String raw) {
           mFinish = true;
           int totalPage = Parser.PageNumberParser(raw);
-          for(int j = 1; j < totalPage; j++) {
+          for(int j = 1; j <= totalPage; j++) {
             final int innerIndex = j;
 
             Crawer.syncGet(URL + "/dangan/" + INDEX[index] + "-" + innerIndex + ".html", new Crawer.OnCrawerReadyListener() {
